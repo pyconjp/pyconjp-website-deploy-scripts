@@ -17,8 +17,10 @@
   * production用の起動スクリプト
 
 * yyyy
-  * config.sh
-    * 必要な環境変数を適宜宣言してください
+  * config-production.sh
+    * 本番環境で必要な環境変数を適宜宣言してください
+  * config-staging.sh
+    * ステージング環境で必要な環境変数を適宜宣言してください
   * createuser.sh
     * 初期化に利用
 

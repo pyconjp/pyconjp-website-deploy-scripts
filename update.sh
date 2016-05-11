@@ -9,7 +9,7 @@ set -e
 DEPLOY_TARGET=${1}
 YEAR=${2}
 
-CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config.sh
+CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config-${DEPLOY_TARGET}.sh
 
 if [ ${DEPLOY_TARGET} = "staging" ]; then
     TARGET_PATH="/opt/workspace/pyconjp-stg-${YEAR}"
