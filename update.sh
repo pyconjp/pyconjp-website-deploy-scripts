@@ -29,6 +29,7 @@ fi
 
 echo $TARGET_PATH
 echo $CONFIG_FILE
+source $CONFIG_FILE
 
 
 cd ${TARGET_PATH}
