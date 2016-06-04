@@ -58,5 +58,7 @@ if [ ${DEPLOY_TARGET} = "production" ]; then
     else
         curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "あああああ！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' ${SLACK_WEBHOOK_URL}
     fi
+else
+    curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "ステージング更新しました。確認おねがいします。", "icon_emoji": ":metal:"}' ${SLACK_WEBHOOK_URL}
 fi
 
