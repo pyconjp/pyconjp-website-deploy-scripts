@@ -8,6 +8,7 @@ set -e
 
 DEPLOY_TARGET=${1}
 YEAR=${2}
+PRODUCTION_URL='https://pycon.jp/${YEAR}/'
 
 CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config-${DEPLOY_TARGET}.sh
 
@@ -50,5 +51,12 @@ if [ ${DEPLOY_TARGET} = "production" ]; then
     /opt/workspace/deploy-scripts/stop.sh ${YEAR}
     sleep 5
     /opt/workspace/deploy-scripts/start.sh ${YEAR}
+    sleep 5
+    STATUS_CODE=`curl -LI ${PRODUCTION_URL} -o /dev/null -w '%{http_code}\n' -s`
+    if [ ${STATUS_CODE} = "200" ]; then
+        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "本番サイト、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' https://hooks.slack.com/services/${SLACK_TOKEN}
+    else
+        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "あああああ！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' https://hooks.slack.com/services/${SLACK_TOKEN}
+    fi
 fi
 
