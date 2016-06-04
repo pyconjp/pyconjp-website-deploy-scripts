@@ -54,9 +54,9 @@ if [ ${DEPLOY_TARGET} = "production" ]; then
     sleep 5
     STATUS_CODE=`curl -LI ${PRODUCTION_URL} -o /dev/null -w '%{http_code}\n' -s`
     if [ ${STATUS_CODE} = "200" ]; then
-        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "本番サイト、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' https://hooks.slack.com/services/${SLACK_TOKEN}
+        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "本番サイト、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' ${SLACK_WEBHOOK_URL}
     else
-        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "あああああ！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' https://hooks.slack.com/services/${SLACK_TOKEN}
+        curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "あああああ！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' ${SLACK_WEBHOOK_URL}
     fi
 fi
 
