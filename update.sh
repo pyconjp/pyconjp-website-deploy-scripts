@@ -56,8 +56,8 @@ if [ ${DEPLOY_TARGET} = "production" ] || [ ${DEPLOY_TARGET} = "staging" ]; then
   sleep 5
   STATUS_CODE=`curl -LI ${PRODUCTION_URL} -o /dev/null -w '%{http_code}\n' -s`
   if [ ${STATUS_CODE} = "200" ]; then
-    curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "${SLACK_MESSAGE}、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' ${SLACK_WEBHOOK_URL}
+    curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "'${SLACK_MESSAGE}'、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' ${SLACK_WEBHOOK_URL}
   else
-    curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "${SLACK_MESSAGE}！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' ${SLACK_WEBHOOK_URL}
+    curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "'${SLACK_MESSAGE}'！本番サイトの立ち上げに失敗したかもしれません。至急ご確認を。。。", "icon_emoji": ":fire:"}' ${SLACK_WEBHOOK_URL}
   fi
 fi
