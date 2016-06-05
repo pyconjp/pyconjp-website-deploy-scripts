@@ -16,5 +16,5 @@ fi
 if [ ${DEPLOY_TARGET} = "production" ]; then
   kill `cat /var/run/pyconjp/gunicorn${YEAR}.pid`
 elif [ ${DEPLOY_TARGET} = "staging" ]; then
-  kill `cat /var/run/pyconjp/gunicorn${YEAR}-${DEPLOY_TARGET}.pid`
+  kill `cat /var/run/pyconjp-stg/gunicorn${YEAR}.pid`
 fi
