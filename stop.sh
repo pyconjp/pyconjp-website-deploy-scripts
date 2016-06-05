@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 引数に年度を渡して起動
-# deploy-scripts/start.sh 2016
+# 引数に環境情報(staging, production)、年度を渡して起動
+# deploy-scripts/stop.sh 2016
 
 DEPLOY_TARGET=${1}
 YEAR=${2}
