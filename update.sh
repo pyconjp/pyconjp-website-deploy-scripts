@@ -42,7 +42,7 @@ git reset --hard HEAD
 git checkout ${TARGET_BRANCH}
 git pull origin ${TARGET_BRANCH}
 
-if [ ${DEPLOY_TARGET} = "production" || ${DEPLOY_TARGET} = "staging" ]; then
+if [ ${DEPLOY_TARGET} = "production" ] || [ ${DEPLOY_TARGET} = "staging" ]; then
   # 日常的に DB の sync と migrate 要らないと思うので省いときます。
   # ./venv/bin/python manage.py syncdb
   # ./venv/bin/python manage.py migrate
