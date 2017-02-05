@@ -10,13 +10,13 @@ DEPLOY_TARGET=${1}
 YEAR=${2}
 PRODUCTION_URL='https://pycon.jp/${YEAR}/'
 
-CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config-${DEPLOY_TARGET}.sh
-
 if [ ${DEPLOY_TARGET} = "staging" ]; then
-    TARGET_PATH="/opt/workspace/pyconjp-stg-${YEAR}"
+    CONFIG_FILE=/opt/workspace/deploy-scripts/staging/config.sh
+    TARGET_PATH="/opt/workspace/pyconjp-staging"
     TARGET_BRANCH="develop"
     SLACK_MESSAGE="ステージング"
 elif [ ${DEPLOY_TARGET} = "production" ]; then
+    CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config-${DEPLOY_TARGET}.sh
     TARGET_PATH="/opt/workspace/pyconjp-${YEAR}"
     TARGET_BRANCH="master"
     SLACK_MESSAGE="本番サイト"
