@@ -8,7 +8,7 @@ set -e
 
 DEPLOY_TARGET=${1}
 YEAR=${2}
-PRODUCTION_URL='https://pycon.jp/${YEAR}/'
+PRODUCTION_URL="https://pycon.jp/${YEAR}/"
 
 if [ ${DEPLOY_TARGET} = "staging" ]; then
     CONFIG_FILE=/opt/workspace/deploy-scripts/staging/config.sh
