@@ -53,7 +53,7 @@ if [ ${DEPLOY_TARGET} = "production" ] || [ ${DEPLOY_TARGET} = "staging" ]; then
   /opt/workspace/deploy-scripts/stop.sh ${DEPLOY_TARGET} ${YEAR}
   sleep 5
   /opt/workspace/deploy-scripts/start.sh ${DEPLOY_TARGET} ${YEAR}
-  sleep 5
+  sleep 10
   STATUS_CODE=`curl -LI ${PRODUCTION_URL} -o /dev/null -w '%{http_code}\n' -s`
   if [ ${STATUS_CODE} = "200" ]; then
     curl -X POST --data-urlencode 'payload={"channel": "#web-system", "username": "webhookbot", "text": "'${SLACK_MESSAGE}'、正常に立ち上がりました。", "icon_emoji": ":funassyi:"}' ${SLACK_WEBHOOK_URL}
