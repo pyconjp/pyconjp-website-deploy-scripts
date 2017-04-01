@@ -8,7 +8,7 @@ set -e
 
 DEPLOY_TARGET=${1}
 YEAR=${2}
-PRODUCTION_URL='https://pycon.jp/${YEAR}/'
+PRODUCTION_URL="https://pycon.jp/${YEAR}/"
 
 CONFIG_FILE=/opt/workspace/deploy-scripts/${YEAR}/config-${DEPLOY_TARGET}.sh
 
