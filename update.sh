@@ -16,6 +16,7 @@ if [ ${DEPLOY_TARGET} = "staging" ]; then
     TARGET_PATH="/opt/workspace/pyconjp-stg-${YEAR}"
     TARGET_BRANCH="develop"
     SLACK_MESSAGE="ステージング"
+    PRODUCTION_URL="https://staging.pycon.jp/${YEAR}/"
 elif [ ${DEPLOY_TARGET} = "production" ]; then
     TARGET_PATH="/opt/workspace/pyconjp-${YEAR}"
     TARGET_BRANCH="master"
